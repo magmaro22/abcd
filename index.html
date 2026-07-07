@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>건축기사 김동영 | 개인 포트폴리오 (JUNGLIM Style)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Noto Serif KR (정림 특유의 진중한 서체 감성), Noto Sans KR -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #1c1917; /* stone-900 (질감이 느껴지는 무거운 석재 톤) */
+        }
+        .font-serif-junglim {
+            font-family: 'Noto Serif KR', serif;
+        }
+        /* Junglim Precise Architectural Grid Line */
+        .junglim-grid {
+            background-size: 30px 30px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1c1917;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #44403c;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #78716c;
+        }
+    </style>
+</head>
+<body class="text-stone-300 overflow-x-hidden selection:bg-stone-700 selection:text-white">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-stone-900/90 backdrop-blur-md border-b border-stone-800">
+        <div class="max-w-7xl mx-auto px-8 h-20 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-4 group">
+                <!-- Junglim Style Corporate Monogram Block -->
+                <div class="w-7 h-7 bg-stone-100 flex items-center justify-center transition-colors duration-300 group-hover:bg-stone-400">
+                    <span class="text-xs font-bold text-stone-900 tracking-tighter">K</span>
+                </div>
+                <div class="flex flex-col border-l border-stone-700 pl-4">
+                    <span class="font-serif-junglim text-base tracking-wider font-bold text-stone-100">김민수</span>
+                    <span class="text-[9px] tracking-[0.3em] text-stone-500 font-mono">ARCHITECTURAL ARCHIVE</span>
+                </div>
+            </a>
+
+            <!-- Menu Links (방명록 링크 추가 완료) -->
+            <div class="hidden md:flex items-center space-x-10 text-xs tracking-[0.2em] text-stone-400 font-medium">
+                <a href="#philosophy" class="hover:text-stone-100 transition-colors duration-200">PHILOSOPHY</a>
+                <a href="#works" class="hover:text-stone-100 transition-colors duration-200">WORKS</a>
+                <a href="#drafting" class="hover:text-stone-100 transition-colors duration-200">DRAFTING APP</a>
+                <a href="#chronicle" class="hover:text-stone-100 transition-colors duration-200">CHRONICLE</a>
+                <a href="#contact" class="hover:text-stone-100 transition-colors duration-200">CONTACT</a>
+                <a href="https://padlet.com/magmaro24/padlet-tdhfhns2cllflq9" target="_blank" class="text-stone-300 hover:text-white transition-colors duration-200 flex items-center gap-1">
+                    GUESTBOOK <i data-lucide="external-link" class="w-3 h-3"></i>
+                </a>
+            </div>
+
+            <!-- Meta Context Info -->
+            <div class="hidden lg:flex items-center space-x-2 font-mono text-[10px] text-stone-500">
+                <span class="w-1.5 h-1.5 bg-stone-400 rounded-full animate-pulse"></span>
+                <span>STATUS: ARCHITECTURE GRADUATE</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION (THREE.JS RIGID GRID LATTICE) -->
+    <section class="relative h-screen w-full flex items-center justify-start junglim-grid overflow-hidden px-8 lg:px-24">
+        <!-- Structural Canvas Background -->
+        <div id="canvas-container" class="absolute inset-0 z-0 opacity-30 md:opacity-50"></div>
+        
+        <!-- Architectural Overlay Texts -->
+        <div class="absolute right-12 top-28 text-[9px] text-stone-600 font-mono hidden lg:block select-none leading-relaxed text-right">
+            STRUCTURE LOGIC: REGULAR GRID SYSTEM <br>
+            MODULE: 3000mm x 3000mm INTEGRATION <br>
+            JUNGLIM ARCHITECTURE MENTALITY
+        </div>
+
+        <!-- Hero Main Context -->
+        <div class="relative z-10 max-w-4xl text-left mt-16">
+            <span class="text-[10px] tracking-[0.5em] text-stone-500 uppercase font-mono mb-4 block">건축의 공공성과 지속 가능한 질서</span>
+            <h1 class="text-3xl md:text-6xl font-serif-junglim font-light tracking-tight leading-snug mb-8 text-stone-100">
+                바른 직선이 만드는<br>
+                <span class="font-bold border-b-2 border-stone-500 pb-1">건강한 공간의 가치</span>
+            </h1>
+            <p class="text-stone-400 max-w-2xl text-xs md:text-sm font-light leading-relaxed mb-12">
+                정림건축이 지켜온 디자인 윤리와 공공성을 깊이 존경합니다. 화려한 외피에 함몰되지 않고, 엄격한 그리드 질서 속에서 대지의 맥락을 짚어내며 인간 중심의 공간 시퀀스를 설계하는 신입 사원 지원자 김민수입니다.
+            </p>
+            <div class="flex flex-col sm:flex-row items-start gap-4">
+                <a href="#works" class="w-full sm:w-auto px-6 py-3.5 bg-stone-200 hover:bg-stone-300 text-stone-900 font-medium text-xs tracking-widest transition-all duration-300 flex items-center justify-center gap-3">
+                    PROJECT ARCHIVE <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+                <a href="https://padlet.com/magmaro24/padlet-tdhfhns2cllflq9" target="_blank" class="w-full sm:w-auto px-6 py-3.5 border border-stone-700 hover:border-stone-400 text-stone-300 hover:text-white text-xs tracking-widest transition-all duration-300 flex items-center justify-center gap-2">
+                    LEAVE A MESSAGE <i data-lucide="message-square-text" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: PHILOSOPHY -->
+    <section id="philosophy" class="py-28 bg-stone-950/60 border-y border-stone-800 relative">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                
+                <div class="lg:col-span-4 space-y-6">
+                    <div>
+                        <span class="text-[10px] tracking-widest text-stone-500 font-mono block mb-2">01 / ARCHITECTURAL MIND</span>
+                        <h2 class="text-2xl font-serif-junglim font-bold text-stone-100">건축 철학과 신념</h2>
+                    </div>
+                    <!-- Minimal Monotone Silhouette / Sketch Frame -->
+                    <div class="relative aspect-[3/4] bg-stone-900 border border-stone-800 flex flex-col justify-between p-6">
+                        <div class="text-[10px] font-mono text-stone-600">MATERIAL STUDY: EXPOSED CONCRETE & GRANITE</div>
+                        <div class="space-y-2">
+                            <h3 class="font-serif-junglim text-lg text-stone-300">김 민 수</h3>
+                            <p class="text-[11px] text-stone-500 font-mono tracking-wider">ARCHITECTURE GRADUATE</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-8 space-y-12 lg:pt-8">
+                    <div class="space-y-6 text-stone-400 text-sm md:text-base leading-relaxed font-light">
+                        <h3 class="text-xl font-serif-junglim text-stone-200">"건강한 건축, 함께하는 공동체"</h3>
+                        <p>
+                            정림건축이 지향해 온 <strong class="text-stone-200">‘건강한 환경을 만들어 사회와 공유하는 건축’</strong>의 가치는 제 학업 설계의 이정표였습니다. 랜드마크로서의 거대한 조형성보다는, 보행자가 우연히 마주치는 골목의 스케일, 내부 지향적 중정이 주는 심리적 안정감, 자연 채광이 구조물을 스치며 만드는 음영의 깊이에 집중합니다.
+                        </p>
+                        <p>
+                            그리드 모듈 기반의 평면계획을 기본기로 다졌으며, BIM(Revit)을 도입하여 단순 가시화 단계를 넘어 벽체 구성원과 공조 설비의 실제 간섭을 체크하는 실무지향적 검토 훈련을 거쳤습니다.
+                        </p>
+                    </div>
+
+                    <!-- Core Competency Grid -->
+                    <div class="space-y-4 pt-8 border-t border-stone-800">
+                        <h4 class="text-[11px] tracking-widest text-stone-500 font-mono font-bold">CORE FIELD & TECHNICAL TOOLS</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono">
+                            <div class="p-4 border border-stone-800 bg-stone-900/40">
+                                <span class="text-xs text-stone-200 block font-bold mb-1">Grid & Plan Design</span>
+                                <p class="text-[11px] text-stone-500 leading-relaxed">AutoCAD를 통한 정밀 도면 설계. 치수 오차 없는 마스터플랜 및 동선 시퀀스 제어</p>
+                            </div>
+                            <div class="p-4 border border-stone-800 bg-stone-900/40">
+                                <span class="text-xs text-stone-200 block font-bold mb-1">Integrated BIM (Revit)</span>
+                                <p class="text-[11px] text-stone-500 leading-relaxed">LOD 300 수준의 단면 상세 및 패밀리 제어, 도면 연동을 통한 수량 산출 흐름 이해</p>
+                            </div>
+                            <div class="p-4 border border-stone-800 bg-stone-900/40">
+                                <span class="text-xs text-stone-200 block font-bold mb-1">Sustainable Energy</span>
+                                <p class="text-[11px] text-stone-500 leading-relaxed">친환경 패시브 일조 분석 및 외피 디테일을 반영한 최적의 환경 성능 도출</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: WORKS (PRECISE GRID GALLERY) -->
+    <section id="works" class="py-28 junglim-grid">
+        <div class="max-w-7xl mx-auto px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-stone-800 pb-8">
+                <div>
+                    <span class="text-[10px] tracking-widest text-stone-500 font-mono block mb-2">02 / SELECTED ARCHIVE</span>
+                    <h2 class="text-2xl md:text-3xl font-serif-junglim font-bold text-stone-100">설계 포트폴리오</h2>
+                </div>
+                
+                <!-- Minimal Filter Tab -->
+                <div class="flex gap-4 mt-6 md:mt-0 text-[11px] tracking-widest font-mono">
+                    <button onclick="filterWorks('all')" class="work-tab text-stone-100 border-b border-stone-100 pb-1" data-category="all">ALL</button>
+                    <button onclick="filterWorks('public')" class="work-tab text-stone-500 hover:text-stone-300 pb-1" data-category="public">PUBLIC & CULTURAL</button>
+                    <button onclick="filterWorks('urban')" class="work-tab text-stone-500 hover:text-stone-300 pb-1" data-category="urban">URBAN & HOUSING</button>
+                </div>
+            </div>
+
+            <!-- Grid Dynamic Architecture Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="works-grid">
+                
+                <!-- Project 1: Public -->
+                <div class="work-card border border-stone-800 bg-stone-900/80 flex flex-col justify-between group cursor-pointer" data-category="public" onclick="openWorkModal('work1')">
+                    <div>
+                        <!-- Strict Geometric Vector Graphics Mock up -->
+                        <div class="aspect-[4/3] bg-stone-950 border-b border-stone-800 flex items-center justify-center p-8 relative">
+                            <svg class="w-full h-full text-stone-800 group-hover:text-stone-500 transition-colors duration-500" viewBox="0 0 100 75" fill="none" stroke="currentColor" stroke-width="0.3">
+                                <!-- Orthogonal Grid System Representing Junglim Layout -->
+                                <rect x="10" y="10" width="80" height="55" />
+                                <line x1="30" y1="10" x2="30" y2="65" />
+                                <line x1="50" y1="10" x2="50" y2="65" />
+                                <line x1="70" y1="10" x2="70" y2="65" />
+                                <line x1="10" y1="28" x2="90" y2="28" />
+                                <line x1="10" y1="46" x2="90" y2="46" />
+                                <!-- Diagonal Light Entry Path -->
+                                <line x1="30" y1="10" x2="70" y2="65" stroke-dasharray="1,2" stroke-width="0.5" class="text-stone-600"/>
+                            </svg>
+                            <span class="absolute bottom-3 left-4 text-[9px] text-stone-600 font-mono">SHEET A-101 / PLAN ELEVATION</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-serif-junglim font-bold text-stone-200 group-hover:text-white transition-colors">공존의 회랑 (The Public Cloister)</h3>
+                            <p class="text-[11px] text-stone-500 font-mono mt-1 mb-3">복합 시민 문화 연구소 | 졸업지정 우수설계안</p>
+                            <p class="text-stone-400 text-xs leading-relaxed font-light line-clamp-3">
+                                정림건축의 역사적 깊이와 이어지는 공공 복합 공간입니다. 엄격한 정형 그리드 매스 내부에 기둥으로 둘러싸인 거대한 회랑(Cloister)과 선큰 중정을 삽입하여 도심 속 공공 비움의 미학을 극대화했습니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex justify-between text-[10px] font-mono text-stone-600">
+                        <span>SEOUL, KOREA</span>
+                        <span>2025</span>
+                    </div>
+                </div>
+
+                <!-- Project 2: Urban -->
+                <div class="work-card border border-stone-800 bg-stone-900/80 flex flex-col justify-between group cursor-pointer" data-category="urban" onclick="openWorkModal('work2')">
+                    <div>
+                        <div class="aspect-[4/3] bg-stone-950 border-b border-stone-800 flex items-center justify-center p-8 relative">
+                            <svg class="w-full h-full text-stone-800 group-hover:text-stone-500 transition-colors duration-500" viewBox="0 0 100 75" fill="none" stroke="currentColor" stroke-width="0.3">
+                                <circle cx="50" cy="37.5" r="25" />
+                                <rect x="25" y="12.5" width="50" height="50" stroke-dasharray="1,1"/>
+                                <line x1="50" y1="0" x2="50" y2="75" />
+                                <line x1="0" y1="37.5" x2="100" y2="37.5" />
+                            </svg>
+                            <span class="absolute bottom-3 left-4 text-[9px] text-stone-600 font-mono">SHEET A-204 / CONTEXT RATIO</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-serif-junglim font-bold text-stone-200 group-hover:text-white transition-colors">기하학적 질서와 주거 (Geometric Grid Block)</h3>
+                            <p class="text-[11px] text-stone-500 font-mono mt-1 mb-3">저층 고밀도 청년 주거 복합 대안 | 공모전 수상작</p>
+                            <p class="text-stone-400 text-xs leading-relaxed font-light line-clamp-3">
+                                원형 광장을 축으로 방사형 질서와 사각형 모듈 질서가 결합되는 단지 배치 계획입니다. 단위 세대의 공장 정밀 모듈러 제작 시스템(OSC) 적용을 염두에 둔 프로토타입 주거 설계를 완성했습니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex justify-between text-[10px] font-mono text-stone-600">
+                        <span>SONGDO, KOREA</span>
+                        <span>2024</span>
+                    </div>
+                </div>
+
+                <!-- Project 3: Public -->
+                <div class="work-card border border-stone-800 bg-stone-900/80 flex flex-col justify-between group cursor-pointer" data-category="public" onclick="openWorkModal('work3')">
+                    <div>
+                        <div class="aspect-[4/3] bg-stone-950 border-b border-stone-800 flex items-center justify-center p-8 relative">
+                            <svg class="w-full h-full text-stone-800 group-hover:text-stone-500 transition-colors duration-500" viewBox="0 0 100 75" fill="none" stroke="currentColor" stroke-width="0.3">
+                                <path d="M10,65 L30,20 L50,45 L70,15 L90,65 Z" />
+                                <line x1="10" y1="65" x2="90" y2="65" />
+                                <line x1="30" y1="20" x2="30" y2="65" stroke-dasharray="2,2" />
+                                <line x1="70" y1="15" x2="70" y2="65" stroke-dasharray="2,2" />
+                            </svg>
+                            <span class="absolute bottom-3 left-4 text-[9px] text-stone-600 font-mono">SHEET A-302 / GEOMETRY MASS</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-serif-junglim font-bold text-stone-200 group-hover:text-white transition-colors">대지의 숨결 (Topographical Void)</h3>
+                            <p class="text-[11px] text-stone-500 font-mono mt-1 mb-3">자연 지형 순응형 친환경 박물관 | 친환경 우수작</p>
+                            <p class="text-stone-400 text-xs leading-relaxed font-light line-clamp-3">
+                                경사 대지의 훼손을 최소화하기 위해 지형 테라스 형태로 매스를 수평 분절했습니다. 패시브 친환경 설비 개념을 적용해 겨울철 북풍을 막고 여름철 남동풍을 끌어들이는 공기 역학적 친환경 단면 구조입니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex justify-between text-[10px] font-mono text-stone-600">
+                        <span>YANGPYEONG, KOREA</span>
+                        <span>2023</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: MODULOR SKETCHPAD (Strict Grid Modular Drawing) -->
+    <section id="drafting" class="py-24 bg-stone-950/40 border-y border-stone-800 relative">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-4 space-y-6">
+                    <div>
+                        <span class="text-[10px] tracking-widest text-stone-500 font-mono block mb-2">03 / GRID INTERFACE</span>
+                        <h2 class="text-2xl font-serif-junglim font-bold text-stone-100">모듈러 드래프팅 툴</h2>
+                        <p class="text-stone-400 text-xs md:text-sm mt-3 leading-relaxed">
+                            정림의 정밀하고 절제된 선형 설계 철학을 브라우저 위에 구현했습니다. 우측 캔버스 공간에 마우스를 조작하여 완벽한 비례와 그리드 구조에 부합하는 가상의 단면 및 기하학 구조선을 작도해 보십시오.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-stone-800 flex gap-2 font-mono">
+                        <button id="btn-clear" class="px-4 py-2 border border-stone-700 hover:border-stone-400 text-stone-400 hover:text-stone-200 text-[10px] tracking-widest rounded-sm transition-all flex items-center gap-2">
+                            <i data-lucide="refresh-cw" class="w-3 h-3"></i> RESET PLAN
+                        </button>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-8">
+                    <div class="relative bg-stone-950 border border-stone-800 rounded-sm p-1.5 shadow-2xl">
+                        <div class="flex justify-between items-center px-4 py-2 text-[9px] text-stone-600 font-mono tracking-wider border-b border-stone-900/40">
+                            <span>JUNGLIM DRAFTING CANVAS v1.0</span>
+                            <span id="canvas-status">READY</span>
+                        </div>
+                        <!-- Canvas -->
+                        <canvas id="sketchpad" class="w-full h-80 bg-[#151311] block cursor-crosshair"></canvas>
+                        <div class="flex justify-between items-center px-4 py-2 text-[9px] text-stone-600 font-mono">
+                            <span>SNAP: ACTIVE ON 20mm MESH</span>
+                            <span>PEN STYLE: REGULAR GRAY LINE</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: CHRONICLE (AWARDS & CAREER) -->
+    <section id="chronicle" class="py-24 junglim-grid">
+        <div class="max-w-3xl mx-auto px-8">
+            
+            <div class="text-center mb-20">
+                <span class="text-[10px] tracking-widest text-stone-500 font-mono block mb-2">04 / ARCHITECT CHRONICLE</span>
+                <h2 class="text-2xl font-serif-junglim font-bold text-stone-100">이력 및 공모전 수상 내역</h2>
+            </div>
+
+            <!-- Solid Minimal Timeline Structure -->
+            <div class="relative border-l-2 border-stone-800 pl-8 ml-2 space-y-12">
+                
+                <!-- Chronicle 1 -->
+                <div class="relative">
+                    <div class="absolute -left-[38px] top-1.5 w-3 h-3 bg-stone-100 border border-stone-950"></div>
+                    <span class="text-[11px] text-stone-500 font-mono font-bold tracking-wider">2026. 02</span>
+                    <h3 class="text-base font-serif-junglim font-bold text-stone-200 mt-1">대학 공과대학 건축학과 졸업</h3>
+                    <p class="text-stone-400 text-xs mt-2 font-light leading-relaxed">
+                        정형 그리드 기반 대규모 친환경 통합 설계(BIM/Revit LOD 300) 과정 우수 성과 인증. 전학년 성적 장학 다수 수혜.
+                    </p>
+                </div>
+
+                <!-- Chronicle 2 -->
+                <div class="relative">
+                    <div class="absolute -left-[38px] top-1.5 w-3 h-3 bg-stone-700 border border-stone-950"></div>
+                    <span class="text-[11px] text-stone-500 font-mono font-bold tracking-wider">2024. 11</span>
+                    <h3 class="text-base font-serif-junglim font-bold text-stone-200 mt-1">대한민국 건축대전 입선 당선</h3>
+                    <p class="text-stone-400 text-xs mt-2 font-light leading-relaxed">
+                        한국건축가협회 주관 공모전 출품. 모듈러 연계 청년 공동체 분산 주거 모델 <span class="italic text-stone-300">"기하학적 질서와 주거"</span> 계획 및 상세 패널 설계 전담 유공.
+                    </p>
+                </div>
+
+                <!-- Chronicle 3 -->
+                <div class="relative">
+                    <div class="absolute -left-[38px] top-1.5 w-3 h-3 bg-stone-700 border border-stone-950"></div>
+                    <span class="text-[11px] text-stone-500 font-mono font-bold tracking-wider">2024. 07 - 2024. 08</span>
+                    <h3 class="text-base font-serif-junglim font-bold text-stone-200 mt-1">지음(JIUM) 건축사사무소 하계 인턴십 연수</h3>
+                    <p class="text-stone-400 text-xs mt-2 font-light leading-relaxed">
+                        실무 기획설계(SD) 단계 단독주택 계획 참여. AutoCAD 정밀 디테일 평·입면도 작도 및 현장 감리 보조 실무 연수 2개월 수료.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: CONTACT -->
+    <section id="contact" class="py-24 bg-stone-950/60 border-t border-stone-800 relative">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-[10px] tracking-widest text-stone-500 font-mono block">05 / OFFICE INQUIRY</span>
+                    <h2 class="text-2xl md:text-3xl font-serif-junglim font-bold text-stone-100">정직하고 단단한 역량으로<br>팀의 가치를 더하겠습니다.</h2>
+                    <p class="text-stone-400 text-xs md:text-sm leading-relaxed font-light">
+                        설계 프로세스의 전 단계에서 정밀함을 추구하며 선배 실무진 및 클라이언트와 건강한 시너지를 창출할 준비가 되어있습니다. 면접 제의나 포트폴리오 세부 검토가 필요하시다면 언제든 아래 창구를 통해 통신 주십시오.
+                    </p>
+                    
+                    <div class="border-t border-stone-800 pt-6 font-mono text-xs text-stone-500 space-y-2">
+                        <div class="flex justify-between"><span>E-MAIL</span><span class="text-stone-300">minsu.arch@gmail.com</span></div>
+                        <div class="flex justify-between"><span>MOBILE</span><span class="text-stone-300">+82 (0)10-1234-5678</span></div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-7 border border-stone-800 bg-stone-900/30 p-8 rounded-sm">
+                    <form id="contact-form" class="space-y-6 font-mono text-xs">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-stone-500 mb-2">성함 / 아틀리에·사무소 명</label>
+                                <input type="text" required class="w-full bg-stone-950 border border-stone-800 rounded-sm px-4 py-3 text-stone-200 focus:outline-none focus:border-stone-500 transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-stone-500 mb-2">연락용 이메일 주소</label>
+                                <input type="email" required class="w-full bg-stone-950 border border-stone-800 rounded-sm px-4 py-3 text-stone-200 focus:outline-none focus:border-stone-500 transition-colors">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-stone-500 mb-2">전달 메시지 본문</label>
+                            <textarea rows="4" required class="w-full bg-stone-950 border border-stone-800 rounded-sm px-4 py-3 text-stone-200 focus:outline-none focus:border-stone-500 transition-colors" placeholder="상세 요건 및 회신처를 기재바랍니다."></textarea>
+                        </div>
+                        <div id="form-msg" class="hidden text-stone-300 p-3 bg-stone-800 border border-stone-700">
+                            메시지가 성공적으로 인덱싱되었습니다. 신속히 응답하겠습니다.
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-stone-200 hover:bg-stone-300 text-stone-900 font-bold tracking-widest rounded-sm transition-colors">
+                            SUBMIT TRANSLATION SECURELY
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (하단 푸터에도 방명록 링크 연동 완료) -->
+    <footer class="py-12 bg-stone-950 border-t border-stone-900 text-stone-600 font-mono text-[10px] tracking-wider">
+        <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <span class="font-serif-junglim font-bold text-stone-400">MINSU KIM ARCHITECTS</span>
+            <div class="flex items-center space-x-6">
+                <a href="https://padlet.com/magmaro24/padlet-tdhfhns2cllflq9" target="_blank" class="hover:text-stone-400 transition-colors">PADLET GUESTBOOK</a>
+                <span>© 2026 MINSU KIM. OPEN SOURCE FOR PORTFOLIO INTERFACE.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL POPUP SHEET -->
+    <div id="work-modal" class="fixed inset-0 bg-stone-950/95 z-[100] hidden flex items-center justify-center p-4 backdrop-blur-sm overflow-y-auto">
+        <div class="bg-stone-900 border border-stone-800 w-full max-w-4xl rounded-sm max-h-[90vh] flex flex-col font-mono text-xs">
+            <div class="p-6 border-b border-stone-800 flex justify-between items-start">
+                <div>
+                    <span id="modal-category" class="text-stone-500 text-[10px]">DOCUMENT METADATA</span>
+                    <h2 id="modal-title" class="text-xl font-serif-junglim font-bold text-stone-100 mt-1">TITLE</h2>
+                </div>
+                <button onclick="closeWorkModal()" class="text-stone-400 hover:text-white p-1.5 border border-stone-800 rounded-sm">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <div class="p-6 overflow-y-auto space-y-6 flex-1 text-stone-400">
+                <div class="w-full aspect-[2/1] bg-stone-950 border border-stone-800 flex items-center justify-center relative p-4">
+                    <svg class="w-full h-full text-stone-900" viewBox="0 0 100 50" fill="none" stroke="currentColor" stroke-width="0.2">
+                        <rect x="5" y="5" width="90" height="40"/>
+                        <line x1="5" y1="25" x2="95" y2="25"/>
+                        <line x1="50" y1="5" x2="50" y2="40"/>
+                    </svg>
+                    <span class="absolute bottom-2 left-3 text-[9px] text-stone-600">ARCHITECTURAL DIAGRAM MATRIX OVERLAY</span>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-[11px] p-4 bg-stone-950/60 border border-stone-800/40">
+                    <div><span class="text-stone-600 block">대지제원 (SITE)</span><span id="modal-site" class="text-stone-300">지정 구역</span></div>
+                    <div><span class="text-stone-600 block">연면적 규모 (SCALE)</span><span id="modal-area" class="text-stone-300">00,000 ㎡</span></div>
+                </div>
+                <p id="modal-desc" class="leading-relaxed font-light text-stone-400 text-xs font-sans">설명 본문</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGIC SCRIPTS -->
+    <script>
+        lucide.createIcons();
+
+        // Project database
+        const worksDb = {
+            work1: {
+                title: "공존의 회랑 (The Public Cloister)",
+                site: "서울시 종로구 삼청동 일대 역사보존지구",
+                area: "지상 3층, 지하 1층 / 연면적 3,450 ㎡",
+                desc: "정림건축이 지향해 온 한국적 공간 전통의 마당과 회랑 시퀀스를 현대적으로 오마주했습니다. 주변 저층 주거지의 스케일을 고려하여 단일 매스를 4개의 작은 모듈로 분절하고, 그 중심에 열린 선큰 광장을 두어 공공 보행 동선이 자연스럽게 내부로 흡수되도록 설계했습니다. 전면 커튼월 파사드는 외측 루버의 모듈 시스템 각도를 일조 시뮬레이션을 통해 물리적으로 연계 검증한 정밀 기하학의 산물입니다."
+            },
+            work2: {
+                title: "기하학적 질서와 주거 (Geometric Grid Block)",
+                site: "인천광역시 연수구 송도동 모듈러 시범지구",
+                area: "지상 12층 / 연면적 14,200 ㎡",
+                desc: "현대 정형 건축 모듈의 효율성을 가치화한 공모전 당선 프로젝트입니다. 모듈러 공법(OSC)에 최적화된 3m x 6m 가변형 주거 유닛 프로토타입을 제안했으며, 중앙 공용 코어를 축으로 구조적 안전성과 공조 인프라의 최단 경로 배치를 완수했습니다. Revit을 이용해 완벽한 패밀리 연계 도면화를 거쳐 시공성 한계를 보완했습니다."
+            },
+            work3: {
+                title: "대지의 숨결 (Topographical Void)",
+                site: "경기도 양평군 서종면 산악 보존 구역",
+                area: "지상 2층 / 연면적 1,890 ㎡",
+                desc: "자연 지형 훼손 최소화를 최우선 과제로 삼은 생태적 공공 문화 센터입니다. 계곡 사면에 정교하게 들어맞는 단면 레벨 계획을 도출했으며, 매스 자체의 슬릿과 오픈 중정을 통해 자연 기류의 대류 현상을 유도하여 건물 전체 냉난방 에너지를 28% 저감시키는 친환경 시나리오 시뮬레이션을 포함하고 있습니다."
+            }
+        };
+
+        function openWorkModal(id) {
+            const data = worksDb[id];
+            if(!data) return;
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-site').innerText = data.site;
+            document.getElementById('modal-area').innerText = data.area;
+            document.getElementById('modal-desc').innerText = data.desc;
+            document.getElementById('work-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeWorkModal() {
+            document.getElementById('work-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function filterWorks(cat) {
+            const tabs = document.querySelectorAll('.work-tab');
+            tabs.forEach(t => {
+                if(t.getAttribute('data-category') === cat) {
+                    t.classList.add('text-stone-100', 'border-b', 'border-stone-100');
+                    t.classList.remove('text-stone-500');
+                } else {
+                    t.classList.remove('text-stone-100', 'border-b', 'border-stone-100');
+                    t.classList.add('text-stone-500');
+                }
+            });
+            const cards = document.querySelectorAll('.work-card');
+            cards.forEach(c => {
+                if(cat === 'all' || c.getAttribute('data-category') === cat) c.classList.remove('hidden');
+                else c.classList.add('hidden');
+            });
+        }
+
+        // ==========================================
+        // THREE.JS RIGID RECTANGULAR LATTICE SYSTEM
+        // ==========================================
+        let scene, camera, renderer, gridGroup;
+
+        function initThree() {
+            const container = document.getElementById('canvas-container');
+            if(!container) return;
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(40, container.clientWidth / container.clientHeight, 1, 1000);
+            camera.position.set(25, 30, 45);
+            camera.lookAt(0, 4, 0);
+
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            container.appendChild(renderer.domElement);
+
+            gridGroup = new THREE.Group();
+            scene.add(gridGroup);
+
+            // Create Strict Modular Curtain Wall Matrix (Junglim Sensibility Grid)
+            const matLine = new THREE.LineBasicMaterial({ color: 0x78716c }); // stone-500
+            const matAccent = new THREE.LineBasicMaterial({ color: 0xe7e5e4 }); // stone-200
+
+            const size = 16, segments = 4, spacing = 4;
+            
+            // Build simple structural skeleton columns and horizontal grid beams
+            for (let y = 0; y <= 4; y++) {
+                const yPos = y * spacing - 6;
+                for (let i = -segments; i <= segments; i++) {
+                    const coord = i * spacing;
+                    const ptX = [new THREE.Vector3(-size, yPos, coord), new THREE.Vector3(size, yPos, coord)];
+                    const geomX = new THREE.BufferGeometry().setFromPoints(ptX);
+                    gridGroup.add(new THREE.Line(geomX, y % 2 === 0 ? matAccent : matLine));
+
+                    const ptZ = [new THREE.Vector3(coord, yPos, -size), new THREE.Vector3(coord, yPos, size)];
+                    const geomZ = new THREE.BufferGeometry().setFromPoints(ptZ);
+                    gridGroup.add(new THREE.Line(geomZ, y % 2 === 0 ? matAccent : matLine));
+                }
+            }
+            
+            // Vertical structural columns
+            for (let x = -segments; x <= segments; x += 2) {
+                for (let z = -segments; z <= segments; z += 2) {
+                    const ptCol = [new THREE.Vector3(x * spacing, -6, z * spacing), new THREE.Vector3(x * spacing, 10, z * spacing)];
+                    const geomCol = new THREE.BufferGeometry().setFromPoints(ptCol);
+                    gridGroup.add(new THREE.Line(geomCol, matLine));
+                }
+            }
+
+            let mX = 0, mY = 0;
+            document.addEventListener('mousemove', (e) => {
+                mX = (e.clientX - window.innerWidth / 2) * 0.0003;
+                mY = (e.clientY - window.innerHeight / 2) * 0.0003;
+            });
+
+            function animate() {
+                requestAnimationFrame(animate);
+                gridGroup.rotation.y += 0.001; 
+                gridGroup.rotation.y += (mX - gridGroup.rotation.y) * 0.03;
+                gridGroup.rotation.x += (mY - gridGroup.rotation.x) * 0.03;
+                renderer.render(scene, camera);
+            }
+            animate();
+            window.addEventListener('resize', () => {
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            });
+        }
+
+        // ==========================================
+        // DRAFTING CANVAS (ORTHOGONAL LINES SNAP)
+        // ==========================================
+        const canvas = document.getElementById('sketchpad');
+        let ctx;
+        let isDrawing = false, lastX = 0, lastY = 0;
+        const snap = 20; 
+
+        function initCanvas() {
+            if(!canvas) return;
+            ctx = canvas.getContext('2d');
+            canvas.width = canvas.parentElement.clientWidth - 12;
+            canvas.height = 320;
+            clearAndGrid();
+        }
+
+        function clearAndGrid() {
+            if(!ctx) return;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.strokeStyle = '#292524'; 
+            ctx.lineWidth = 0.5;
+            for(let x=0; x<canvas.width; x+=snap) {
+                ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+            }
+            for(let y=0; y<canvas.height; y+=snap) {
+                ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+            }
+        }
+
+        function getSnappedCoords(e) {
+            const rect = canvas.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            const rawX = clientX - rect.left;
+            const rawY = clientY - rect.top;
+            return {
+                x: Math.round(rawX / snap) * snap,
+                y: Math.round(rawY / snap) * snap
+            };
+        }
+
+        if(canvas) {
+            canvas.addEventListener('mousedown', (e) => {
+                isDrawing = true;
+                const coords = getSnappedCoords(e);
+                lastX = coords.x; lastY = coords.y;
+                document.getElementById('canvas-status').innerText = "DRAWING LINE";
+            });
+
+            canvas.addEventListener('mousemove', (e) => {
+                if(!isDrawing) return;
+                const coords = getSnappedCoords(e);
+                ctx.beginPath();
+                ctx.moveTo(lastX, lastY);
+                ctx.lineTo(coords.x, coords.y);
+                ctx.strokeStyle = '#a8a29e'; 
+                ctx.lineWidth = 1;
+                ctx.stroke();
+                lastX = coords.x; lastY = coords.y;
+            });
+
+            canvas.addEventListener('mouseup', () => { isDrawing = false; document.getElementById('canvas-status').innerText = "STABLE"; });
+            canvas.addEventListener('mouseleave', () => isDrawing = false);
+            
+            canvas.addEventListener('touchstart', (e) => { e.preventDefault(); canvas.dispatchEvent(new MouseEvent('mousedown', {clientX: e.touches[0].clientX, clientY: e.touches[0].clientY})); });
+            canvas.addEventListener('touchmove', (e) => { e.preventDefault(); canvas.dispatchEvent(new MouseEvent('mousemove', {clientX: e.touches[0].clientX, clientY: e.touches[0].clientY})); });
+            canvas.addEventListener('touchend', () => canvas.dispatchEvent(new MouseEvent('mouseup')));
+        }
+
+        const btnClear = document.getElementById('btn-clear');
+        if(btnClear) btnClear.addEventListener('click', clearAndGrid);
+
+        const contactForm = document.getElementById('contact-form');
+        if(contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                document.getElementById('form-msg').classList.remove('hidden');
+                contactForm.reset();
+            });
+        }
+
+        window.onload = function() {
+            initThree();
+            initCanvas();
+            window.addEventListener('resize', initCanvas);
+        };
+    </script>
+</body>
+</html>
